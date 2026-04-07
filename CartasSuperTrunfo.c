@@ -3,26 +3,17 @@
 // Desafio Super Trunfo - Países
 // Tema 2
 
-/*
-Primeiramente é feito a organização das cartas, com o uso de "struct";
-Em seguida Enviamos a mensagem para que o usuário insira os dados da primeira carta;
-È feito a entrada de dados através da interação com o usuário utilizando "printf" e "scanf";
-A densidade populacional e o pib per capita é calculada utilizando conversao implicita;
-Recebemos os dados da segunda carta da mesma forma que é feito na carta 1;
-Os dados das cartas são exibidos junto com o resultado da media calculada;
-A exibição dos dados da carta é feita segundo as informações que o usuário colocou.); 
-*/
-
 struct Carta {
     char estado;
     char cidade[50];
     char codigo[10];
-    int populacao;
+    unsigned long int populacao;
     float area;
     float pib;
     int pontos_turisticos;
     float densidade_populacional;
     float pib_capita;
+    float super_poder;
 };
 
 int main() {
@@ -47,7 +38,7 @@ int main() {
     scanf("%s", franca.codigo);
 
     printf("População total:\n");
-    scanf("%d", &franca.populacao);
+    scanf("%lu", &franca.populacao);
 
     printf("Área da cidade (km²):\n");
     scanf("%f", &franca.area);
@@ -63,6 +54,15 @@ int main() {
     // Calculo Densidade Populacional e PIB per Capita
     franca.densidade_populacional = franca.populacao / franca.area;
     franca.pib_capita = (franca.pib * 1000000000) / franca.populacao;
+
+    // Calculo do Super poder
+    franca.super_poder = (float)franca.populacao +
+                        franca.area +
+                        franca.pib +
+                        (float) franca.pontos_turisticos +
+                        franca.pib_capita +
+                        (1.0 / franca.densidade_populacional);
+
 
 
     // ---------------- CARTA 2 ----------------
@@ -82,7 +82,7 @@ int main() {
     scanf("%s", brasil.codigo);
 
     printf("População total:\n");
-    scanf("%d", &brasil.populacao);
+    scanf("%lu", &brasil.populacao);
 
     printf("Área da cidade (km²):\n");
     scanf("%f", &brasil.area);
@@ -97,6 +97,14 @@ int main() {
     brasil.densidade_populacional =  brasil.populacao / brasil.area;
     brasil.pib_capita = (brasil.pib * 1000000000) /  brasil.populacao;
 
+    // Calculo do Super poder
+    brasil.super_poder = (float)brasil.populacao +
+                        brasil.area +
+                        brasil.pib +
+                        (float) brasil.pontos_turisticos +
+                        brasil.pib_capita +
+                        (1.0 / brasil.densidade_populacional);
+
     printf("\nCarta 2 registrada com sucesso!\n");
 
 
@@ -108,12 +116,13 @@ int main() {
     printf("Estado: %c\n", franca.estado);
     printf("Cidade: %s\n", franca.cidade);
     printf("Código: %s\n", franca.codigo);
-    printf("População: %d\n", franca.populacao);
+    printf("População: %lu\n", franca.populacao);
     printf("Área: %.2f km²\n", franca.area);
-    printf("PIB: %.1f trilhões\n", franca.pib);
+    printf("PIB: %.2f trilhões\n", franca.pib);
     printf("Pontos turísticos: %d\n", franca.pontos_turisticos);
     printf("Densidade Populacional: %.2f hab/km²\n", franca.densidade_populacional);
-    printf("PIB per Capita: %.2f reais\n\n", franca.pib_capita);
+    printf("PIB per Capita: %.2f\n", franca.pib_capita);
+    printf("Super poder: %.2f\n\n", franca.super_poder);
 
     
 
@@ -121,12 +130,24 @@ int main() {
     printf("Estado: %c\n", brasil.estado);
     printf("Cidade: %s\n", brasil.cidade);
     printf("Código: %s\n", brasil.codigo);
-    printf("População: %d\n", brasil.populacao);
+    printf("População: %lu\n", brasil.populacao);
     printf("Área: %.2f km²\n", brasil.area);
     printf("PIB: %.2f bilhões de reais\n", brasil.pib);
     printf("Pontos turísticos: %d\n", brasil.pontos_turisticos);
     printf("Densidade Populacional: %.2f hab/km²\n", brasil.densidade_populacional);
     printf("PIB per Capita: %.2f reais\n", brasil.pib_capita);
+    printf("Super poder: %.2f\n\n", brasil.super_poder);
+
+        // ----------- COMPARAÇÂO DAS CARTAS -----------
+printf("====== COMPARAÇÂO DAS CARTAS ======\n");
+printf("População: Brasil (carta2) Venceu (%d)\n", franca.populacao > brasil.populacao);
+printf("Area: Brasil (carta 2) venceu (%d)\n", franca.area > brasil.area);
+printf("PIB: França (carta 1) venceu (%d)\n", franca.pib > brasil.pib);
+printf("Pontos turísticos: Brasil (carta 2) venceu (%d)\n", franca.pontos_turisticos > brasil.pontos_turisticos);
+printf("Densidade Populacional: Brasil (carta 2) venceu (%d)\n", franca.densidade_populacional > brasil.densidade_populacional);
+printf("PIB per Capita: França (carta 1) venceu (%d)\n", franca.pib_capita > brasil.pib_capita);
+printf("Super Poder: Brasil (carta2) Venceu (%d)\n", franca.super_poder > brasil.super_poder);
+
 
     return 0;
 }
