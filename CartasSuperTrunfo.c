@@ -140,14 +140,16 @@ int main() {
 
         // ----------- COMPARAÇÂO DAS CARTAS -----------
 printf("====== COMPARAÇÂO DAS CARTAS ======\n");
-printf("População: Brasil (carta2) Venceu (%d)\n", franca.populacao > brasil.populacao);
-printf("Area: Brasil (carta 2) venceu (%d)\n", franca.area > brasil.area);
-printf("PIB: França (carta 1) venceu (%d)\n", franca.pib > brasil.pib);
-printf("Pontos turísticos: Brasil (carta 2) venceu (%d)\n", franca.pontos_turisticos > brasil.pontos_turisticos);
-printf("Densidade Populacional: Brasil (carta 2) venceu (%d)\n", franca.densidade_populacional > brasil.densidade_populacional);
-printf("PIB per Capita: França (carta 1) venceu (%d)\n", franca.pib_capita > brasil.pib_capita);
-printf("Super Poder: Brasil (carta2) Venceu (%d)\n", franca.super_poder > brasil.super_poder);
+printf("! ! ! Atributo: População ! ! !\n\n");
 
+printf("Carta 1 - França: %d\n", franca.populacao);
+printf("Carta 2 - Brasil: %d\n", brasil.populacao);
+
+    if (franca.populacao > brasil.populacao) {
+        printf("FRANÇA VENCEU!\n");
+    } else {
+        printf("Brasil venceu!!\n");
+    }
 
     return 0;
 }
