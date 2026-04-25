@@ -142,8 +142,8 @@ int main() {
 printf("====== COMPARAÇÂO DAS CARTAS ======\n");
 printf("! ! ! Atributo: População ! ! !\n\n");
 
-printf("Carta 1 - França: %d\n", franca.populacao);
-printf("Carta 2 - Brasil: %d\n", brasil.populacao);
+printf("Carta 1 - França: %lu\n", franca.populacao);
+printf("Carta 2 - Brasil: %lu\n", brasil.populacao);
 
     if (franca.populacao > brasil.populacao) {
         printf("FRANÇA VENCEU!\n");
