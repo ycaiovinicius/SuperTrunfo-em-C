@@ -138,18 +138,90 @@ int main() {
     printf("PIB per Capita: %.2f reais\n", brasil.pib_capita);
     printf("Super poder: %.2f\n\n", brasil.super_poder);
 
-        // ----------- COMPARAÇÂO DAS CARTAS -----------
+
+        // ----------- MENU INTERATIVO -----------
+        int escolha;
 printf("====== COMPARAÇÃO DE CARTAS ======\n");
-printf("Atributo: População\n\n");
+printf("1 - (População)\n");
+printf("2 - (Area)\n");
+printf("3 - (PIB)\n");
+printf("4 - (Número de Pontos Turísticos)\n");
+printf("5 - (Densidade Demográfica)\n");
 
-printf("França - %s: %lu\n", franca.cidade, franca.populacao);
-printf("Brasil - %s: %lu\n", brasil.cidade, brasil.populacao);
+printf("\nEscolha uma opção:\n");
+scanf("%d", &escolha);
 
-    if (franca.populacao > brasil.populacao) {
-        printf("FRANÇA VENCEU!\n");
-    } else {
-        printf("Brasil venceu!!\n");
-    }
 
+// COMPARAÇÂO DOS ATRIBUTOS ESCOLHIDOS PELO USUÁRIO
+switch (escolha)
+{
+case 1:
+    printf("\nAtributo escolhido: (População)\n\n");
+    printf("França - %s: %lu\n", franca.cidade, franca.populacao);
+    printf("Brasil - %s: %lu\n\n", brasil.cidade, brasil.populacao);
+
+        if (franca.populacao > brasil.populacao) {
+            printf("França venceu!!\n");
+        } else if (franca.populacao < brasil.populacao) {
+            printf("Brasil venceu!!\n");
+        } else {
+            printf("Empate!\n");
+        }
+        break;
+case 2:
+    printf("\nAtributo escolhido: (Área)\n\n");
+    printf("França - %s: %.2f km²\n", franca.cidade, franca.area);
+    printf("Brasil - %s: %.2f km²\n\n", brasil.cidade, brasil.area);
+
+        if (franca.area > brasil.area) {
+            printf("França venceu!!\n");
+        } else if (franca.area < brasil.area) {
+            printf("Brasil venceu!!\n");
+        } else {
+            printf("Empate!\n");
+        }
+        break;
+case 3:
+    printf("\nAtributo escolhido: (PIB)\n\n");
+    printf("França - %s: %.2f trilhões\n", franca.cidade, franca.pib);
+    printf("Brasil - %s: %.2f bilhões de reais\n\n", brasil.cidade, brasil.pib);
+
+        if (franca.pib > brasil.pib) {
+            printf("França venceu!!\n");
+        } else if (franca.pib < brasil.pib) {
+            printf("Brasil venceu!!\n");
+        } else {
+            printf("Empate!\n");
+        }
+        break;
+case 4:
+    printf("\nAtributo escolhido: (Pontos Turísticos)\n\n");
+    printf("França - %s: %d\n", franca.cidade, franca.pontos_turisticos);
+    printf("Brasil - %s: %d\n\n", brasil.cidade, brasil.pontos_turisticos);
+        if (franca.pontos_turisticos > brasil.pontos_turisticos) {
+            printf("França venceu!!\n");
+        } else if (franca.pontos_turisticos < brasil.pontos_turisticos) {
+            printf("Brasil venceu!!\n");
+        } else {
+            printf("Empate!\n");
+        }
+        break;
+case 5:
+    printf("\nAtributo escolhido: (Densidade Demográfica)\n\n");
+    printf("França - %s: %.2f hab/km²\n", franca.cidade, franca.densidade_populacional);
+    printf("Brasil - %s: %.2f hab/km²\n\n", brasil.cidade, brasil.densidade_populacional);
+
+        if (franca.densidade_populacional < brasil.densidade_populacional) {
+            printf("França venceu!!\n");
+        } else if (franca.densidade_populacional > brasil.densidade_populacional) {
+            printf("Brasil venceu!!\n");
+        } else {
+            printf("Empate!\n");
+        }
+        break;
+default:
+    printf("Opção inválida\n");
+    break;
+}
     return 0;
 }
